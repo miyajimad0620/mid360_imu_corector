@@ -3,7 +3,7 @@
 namespace mid360_imu_corector
 {
 
-Mid360ImuCorector::Mid360ImuCorector(
+Mid360ImuCorectorNode::Mid360ImuCorectorNode(
   const std::string & node_name, const std::string & node_namespace,
   const rclcpp::NodeOptions & node_options)
 : rclcpp::Node(node_name, node_namespace, node_options),
@@ -19,7 +19,7 @@ Mid360ImuCorector::Mid360ImuCorector(
     this->create_subscription<ImuMsg>("imu/data_raw", rclcpp::QoS(1), mid360_imu_corector);
 }
 
-void Mid360ImuCorector::CorectImu(ImuMsg::UniquePtr imu_msg)
+void Mid360ImuCorectorNode::CorectImu(ImuMsg::UniquePtr imu_msg)
 {
   // 重力加速度の補正
   imu_msg->linear_acceleration.x *= gravity_;
@@ -37,4 +37,4 @@ void Mid360ImuCorector::CorectImu(ImuMsg::UniquePtr imu_msg)
 
 #include "rclcpp_components/register_node_macro.hpp"
 
-RCLCPP_COMPONENTS_REGISTER_NODE(mid360_imu_corector::Mid360ImuCorector)
+RCLCPP_COMPONENTS_REGISTER_NODE(mid360_imu_corector::Mid360ImuCorectorNode)

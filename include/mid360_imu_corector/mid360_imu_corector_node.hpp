@@ -10,7 +10,7 @@
 namespace mid360_imu_corector
 {
 
-class Mid360ImuCorector : public rclcpp::Node
+class Mid360ImuCorectorNode : public rclcpp::Node
 {
 private:
   using ImuMsg = sensor_msgs::msg::Imu;
@@ -19,21 +19,21 @@ public:
   static constexpr auto kDefaultNodeName = "mid360_imu_corector";
 
   MID360_IMU_CORECTOR_PUBLIC
-  Mid360ImuCorector(
+  Mid360ImuCorectorNode(
     const std::string & node_name, const std::string & node_namespace,
     const rclcpp::NodeOptions & node_options = rclcpp::NodeOptions());
 
   MID360_IMU_CORECTOR_PUBLIC
-  explicit inline Mid360ImuCorector(
+  explicit inline Mid360ImuCorectorNode(
     const std::string & node_name, const rclcpp::NodeOptions & node_options = rclcpp::NodeOptions())
-  : Mid360ImuCorector(node_name, "", node_options)
+  : Mid360ImuCorectorNode(node_name, "", node_options)
   {
   }
 
   MID360_IMU_CORECTOR_PUBLIC
-  explicit inline Mid360ImuCorector(
+  explicit inline Mid360ImuCorectorNode(
     const rclcpp::NodeOptions & node_options = rclcpp::NodeOptions())
-  : Mid360ImuCorector(kDefaultNodeName, "", node_options)
+  : Mid360ImuCorectorNode(kDefaultNodeName, "", node_options)
   {
   }
 

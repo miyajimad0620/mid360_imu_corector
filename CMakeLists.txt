@@ -32,9 +32,9 @@ foreach(install_directory IN LISTS install_directories)
   endif()
 endforeach()
 
-# ノードプラグインとエグゼキュータMid360ImuCorectorunで実行するコマンド)の設定
+# ノードプラグインとエグゼキュータ(ros2 runで実行するコマンド)の設定
 rclcpp_components_register_node(${PROJECT_NAME}_lib
-  PLUGIN "mid360_imu_corector::Mid360ImuCorector"
+  PLUGIN "mid360_imu_corector::Mid360ImuCorectorNode"
   EXECUTABLE "mid360_imu_corector_node")
 
 # テスト
